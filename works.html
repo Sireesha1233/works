@@ -1,0 +1,64 @@
+
+               <!DOCTYPE html>
+              <html>
+              <head>
+                <meta charset="utf-8">
+                <meta name="viewport" content="width=device-width">
+                <title>data</title>
+                <link rel="stylesheet" href="dynamic.css"/>
+              </head>
+              <body>
+                <div id="div1">
+                  <button id="showbtn"> Show Data</button>
+                  <input id="searchbar" type="text" placeholder="search here..."/>
+                  <button id="searchbtn">search</button>
+                  <p id="result"></p>
+              
+                  <div id="lists"></div>
+                </div>
+                <script>
+                  let showbtn=document.getElementById('showbtn');
+                  let searchbtn=document.getElementById('searchbtn');
+              
+                  let lists=document.getElementById('lists');
+                  let animals=['lion','camel','tiger','deer','dogs'];
+              
+                  let ul=``;
+                  let li=``;
+              
+                  showbtn.addEventListener('click',()=>{
+                  animals.forEach((ele,index)=>{
+                  li=li+`<li>${ele}</li>`
+                 })
+                  ul=ul+`<ul>${li}</ul>`;
+                  console.log(ul)
+                  lists.innerHTML=ul;
+                
+                 });
+                 let result=document.getElementById("result");
+              
+                 searchbtn.addEventListener('click',()=>{
+                  let text=document.getElementById('searchbar').value;
+                  let indexofanimals=animals.findIndex((ele)=>ele==text)
+                  if(indexofanimals>=0){
+                    let boxhtml=`<p id="found">${text}- animal found</p>`;
+                    result.innerHTML=boxhtml;
+              
+                  }
+                  else{
+                    let boxhtml=`<p id="Notfound"> animal not found </p>`;
+                    result.innerHTML=boxhtml;
+              
+                  }
+              
+                 })
+              
+              
+              
+              
+              
+                </script>
+              
+              </body>
+              </html>
+              
